@@ -1,4 +1,4 @@
-package com.airtel.buyer.airtelboe.service.wpcinfo;
+package com.airtel.buyer.airtelboe.service.WpcInfo;
 
 import com.airtel.buyer.airtelboe.dto.common.BoeResponse;
 import com.airtel.buyer.airtelboe.dto.common.Error;
