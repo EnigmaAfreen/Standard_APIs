@@ -131,7 +131,7 @@ import com.airtel.buyer.airtelboe.service.shipmentstatusreport.ShipmentStatusRep
 import com.airtel.buyer.airtelboe.service.statustracker.StatusTrackerService;
 import com.airtel.buyer.airtelboe.service.wpcmaster.WpcMasterService;
 import com.airtel.buyer.airtelboe.service.wpcinquiry.WpcInquiryService;
-import com.airtel.buyer.airtelboe.service.wpcinfo.WpcInfoService;
+import com.airtel.buyer.airtelboe.service.WpcInfo.WpcInfoService;
 import com.airtel.buyer.airtelboe.user.UserDetailsImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
