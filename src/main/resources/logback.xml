@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="DEV_HOME" value="/u01/spring-apps-home/airtelboeservice/logs"/>
+
+    <appender name="FILE-AUDIT"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DEV_HOME}/airtel-boe-service.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} - [%X{transactionId}] - %msg%n
+            </Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${DEV_HOME}/archived/airtel-boe-service.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+    </appender>
+    <!-- this config is for logback framework starts -->
+    <logger name="com.zaxxer.hikari" level="debug" additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+    </logger>
+    <!-- this config is for logback framework ends -->
+
+    <logger name="com.airtel.buyer.airtelboe" level="debug"
+            additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="FILE-AUDIT"/>
+    </root>
+
+</configuration>

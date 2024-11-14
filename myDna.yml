@@ -1,0 +1,36 @@
+-
+        app: 'Airtel_Portal_Boe'
+        fatherApp: 'buyer_portal'
+        buildPath: '/'
+        buildTool: 'mvn'
+        buildArgs: 'clean install'
+        unitTestArgs: 'clean install'
+        sonarPush: 'sonar:sonar'
+        deployDest: '/u01/spring-apps-home/airtelboeservice/'
+        deploySrc: 'target/airtelboeservice-0.0.1-SNAPSHOT.jar'
+        warName: 'airtelboeservice-0.0.1-SNAPSHOT.jar'
+        startScript: 'ls -ltr'
+        jacocoSrc: '/tmp/jacoco.exec'
+        jacocoDest: '/opt/releases/jacoco.exec'
+        jacocoStartCommand: '/usr/lib/jvm/jdk-11/bin/java -jar -Djmx.port=9094 -Djacoco.dest=/tmp/jacoco.exec /data/solace-app-jar-with-dependencies.jar'
+        java_version: 'java11'
+        automation_java_version: 'java8'
+        TESTNG_FILE: 'testSuite/Airtel_Portal_Boe.xml'
+        minCoverage: '50'
+        mailTO:  'anubhav2.sharma@airtel.com,a_Nishant.sinha@airtel.com'
+        jacocoTarget: '/data/test-coverage/myairtelapp_coverage.exec'
+        AutomationPath: 'https://code.airtelworld.in:7990/bitbucket/scm/api/app-be-automation.git'
+        propertyFileSrc: '*.xml'
+        propertyFileDest: '/tmp/'
+        hasProperties: 'false'
+        serviceName: 'Airtel_Portal_Boe'
+        runTestng: 'false'
+        module_owner: 'Nishant Sinha'
+        module_lead: 'Gaurav Aggarwal'
+        team: 'app Boe'
+        trigger_ut_only_coverage: 'true'
+
+
+
+
+

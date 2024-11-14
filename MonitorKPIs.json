@@ -1,0 +1,90 @@
+{
+  "name": "Partner_Portal_Auth",
+  "influx_server": "influxdb-Partner_Portal_Auth-digital-experience.apps.okdclus01n2.india.airtel.itm",
+  "influx_port": "80",
+  "monitor_time": "45m",
+  "full_rollout_monitor_time": "45m",
+  "full_rollout_compare_monitor_time": "2m",
+  "priorities_metrics_percentage": {
+    "1": 100,
+    "2": 60,
+    "3": 50
+  },
+  "metrics": [{
+    "name": "cpu",
+    "influx_server": "influxdb-digital-infra-digital-experience.apps.okdclus01n2.india.airtel.itm",
+     "influx_port": "80",
+    "database": "digital_infra",
+    "measurement": "cpu",
+    "comparison": "absolute",
+    "threshold": 80,
+    "condition": "lesser",
+    "priority": 1
+  },
+    {
+      "name": "memory",
+      "influx_server": "influxdb-digital-infra-digital-experience.apps.okdclus01n2.india.airtel.itm",
+      "influx_port": "80",
+      "database": "digital_infra",
+      "measurement": "mem",
+      "comparison": "absolute",
+      "threshold": 80,
+      "condition": "lesser",
+      "priority": 1
+    },
+    {
+      "name": "tcp",
+      "influx_server": "influxdb-digital-infra-digital-experience.apps.okdclus01n2.india.airtel.itm",
+      "influx_port": "80",
+      "database": "digital_infra",
+      "measurement": "netstat",
+      "comparison": "absolute",
+      "threshold": 400,
+      "condition": "lesser",
+      "priority": 2
+    },
+    {
+      "name": "heap",
+      "influx_server": "influxdb-digital-infra-digital-experience.apps.okdclus01n2.india.airtel.itm",
+      "influx_port": "80",
+      "database": "digital_infra",
+      "measurement": "java_memory_usage",
+      "comparison": "absolute",
+      "threshold": 5,
+      "condition": "lesser",
+      "priority": 2
+    },
+
+
+    {
+      "name": "api_request_count",
+      "database": "Partner_Portal_Auth_access_log",
+      "measurement": "Partner_Portal_Auth",
+      "comparison": "relative",
+      "margin": 30,
+      "api": "/Partner_Portal_Auth/notification/allMissedCallHistory",
+      "condition": "lesser",
+      "response": [
+        200,
+        400,
+        500
+      ],
+      "priority": 2
+    },
+    {
+      "name": "api_response_time",
+      "database": "Partner_Portal_Auth_access_log",
+      "measurement": "Partner_Portal_Auth",
+      "comparison": "relative",
+      "api": "/Partner_Portal_Auth/notification/allMissedCallHistory",
+      "percentile": [
+        "50.0",
+        "90.0",
+        "99.0"
+      ],
+      "condition": "lesser",
+      "margin": 30,
+      "priority": 1
+    }
+  ]
+}
